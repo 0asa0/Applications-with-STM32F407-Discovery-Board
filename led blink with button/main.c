@@ -33,11 +33,31 @@ void delay(uint32_t time) {
 int main(void)
 {
 	GPIO_Config();
+	int i = 1;
   while (1)
   {
-	  if (GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0)) {
-		GPIO_ToggleBits(GPIOD,GPIO_Pin_12 |GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15);
-	}
+	  if (GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0))
+	  {
+		  while(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0));//butondan dolayı oluşan arkı(debuence) önlemek için
+		  delay(1680000);//butondan dolayı oluşan arkı önlemek için
+
+		  if(i % 4 == 0){
+			  GPIO_ToggleBits(GPIOD, GPIO_Pin_12);
+			  i++;
+		  }
+		  else if(i % 4 == 1){
+			  GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
+			  i++;
+		  }
+		  else if(i % 4 == 2){
+			  GPIO_ToggleBits(GPIOD, GPIO_Pin_14);
+			  i++;
+		  		  }
+		  else if(i % 4 == 3){
+			  GPIO_ToggleBits(GPIOD, GPIO_Pin_15);
+			  i++;
+		  		  }
+	  }
 
   }
 }

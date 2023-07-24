@@ -1,4 +1,4 @@
-Encoding the leds on the board at the register level and also turning on using the stdperiph library.
+Turning on leds on the board using registers and also turning on using the stdperiph library.
 
 ![7tc5o2](https://github.com/0asa0/Applications-with-STM32F407-Discovery-Board/assets/134441532/0eb8fd21-dda2-47dc-8e89-72e1ac97a3e4)
 
